@@ -1,0 +1,219 @@
+/* Gallery Container */
+.gallery-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #d3d3d3; /* Lighter grey */
+  color: #222; /* Darker text for better contrast */
+  z-index: 1;
+}
+
+/* Heading */
+.gallery-heading {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: #1a1a1a;
+  text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.7);
+  letter-spacing: 2px;
+}
+
+/* Carousel Card Styling */
+.carousel-card {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  background: #f7f7f7; /* Soft off-white card */
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease;
+  border: 1px solid #ccc;
+}
+
+/* Image Container */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+  box-shadow: inset 0 0 25px rgba(0,0,0,0.1);
+}
+
+/* Image Styling */
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: brightness(1) contrast(1.05);
+}
+
+/* Hover Effect for Image */
+.carousel-card:hover .carousel-image {
+  transform: scale(1.08);
+  filter: brightness(1.1) contrast(1.15);
+}
+
+/* Overlay Styling */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(247, 247, 247, 0.95), transparent);
+  color: #444;
+  padding: 2rem 2.5rem;
+  border-radius: 0 0 20px 20px;
+  font-weight: 500;
+  box-shadow: 0 -8px 20px rgba(0,0,0,0.05);
+}
+
+.overlay-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.05em;
+  color: #222;
+}
+
+.overlay-description {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* Navigation Buttons */
+.nav-btn {
+  background: #bbb;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0.8rem;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+/* Hover Effect for Buttons */
+.nav-btn:hover {
+  background: #999;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transform: scale(1.15);
+  color: #111;
+}
+
+/* Card Hover Effect */
+.carousel-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* Animated Blobs */
+.animated-blobs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Lighter blobs for subtle background */
+.blob {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  opacity: 0.12;
+  animation: floatBlob 20s infinite ease-in-out;
+  mix-blend-mode: screen;
+  background: #bbbbbb;
+}
+
+/* Different positions and colors for variety */
+.blob:nth-child(1) {
+  top: 10%;
+  left: 15%;
+  background: #cccccc;
+  animation-delay: 0s;
+}
+.blob:nth-child(2) {
+  top: 50%;
+  left: 70%;
+  background: #aaaaaa;
+  animation-delay: 6s;
+}
+.blob:nth-child(3) {
+  top: 80%;
+  left: 35%;
+  background: #dddddd;
+  animation-delay: 12s;
+}
+
+/* Float Animation */
+@keyframes floatBlob {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-25px) scale(1.1);
+  }
+}
+
+/* Ring Animation */
+.ring {
+  position: absolute;
+  border: 2px solid rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  top: 22%;
+  left: 22%;
+  animation: pulse 7s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: scale(1.6);
+    opacity: 0.03;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .gallery-heading {
+    font-size: 2.4rem;
+  }
+
+  .carousel-card {
+    max-width: 100%;
+    border-radius: 16px;
+  }
+
+  .image-container {
+    height: 380px;
+  }
+
+  .overlay-title {
+    font-size: 2rem;
+  }
+
+  .overlay-description {
+    font-size: 1rem;
+  }
+}
